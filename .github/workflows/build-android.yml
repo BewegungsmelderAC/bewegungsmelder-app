@@ -12,7 +12,7 @@ jobs:
       - name: Download dependencies
         run: npm ci
       - name: Install Android SDK v28
-        run: sdkmanager "tools" "platform-tools" "platforms;android-28" "build-tools;28.0.3"
+        run: sdkmanager "tools" "platform-tools" "platforms;android-28" "build-tools;28.0.3" > /dev/null
       - name: Build apk
         run: tns build android --env.production
       - name: Archive build apk
