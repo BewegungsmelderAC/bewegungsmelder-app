@@ -1,7 +1,6 @@
 <template>
   <StackLayout>
     <Button text="Tap me!" @tap="refresh"></Button>
-    <Label class="message" :text="txt" />
     <Label class="message" :text="eventCount" />
   </StackLayout>
 </template>
@@ -12,13 +11,12 @@
   export default {
     data() {
       return {
-        txt: 'lel'
+
       };
     },
     methods: {
       refresh() {
-        console.log('Fetching! :)');
-        this.$store.dispatch('fetchEvents');
+        this.$store.dispatch('fetchEvents', {url: "https://bm-ac.ml/api/event"});
       }
     },
     computed: {

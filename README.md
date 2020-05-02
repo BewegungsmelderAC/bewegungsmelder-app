@@ -8,7 +8,7 @@
 # Install dependencies
 npm install
 
-# Preview on device
+# Preview on device (Note: This will not work together with vuex store!)
 tns preview
 
 # Build, watch for changes and run the application

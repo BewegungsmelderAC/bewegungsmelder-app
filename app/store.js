@@ -1,10 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { traceCategories } from 'tns-core-modules/ui/frame/frame';
-
-const httpModule = require("tns-core-modules/http");
 
 Vue.use(Vuex);
+
+const httpModule = require("tns-core-modules/http");
 
 export default new Vuex.Store({
   state: {
@@ -19,15 +18,13 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    fetchEvents({ commit, state }) {
-      httpModule.getJSON("https://bm-ac.ml/api/event").
+    fetchEvents({ commit }, url) {
+      httpModule.getJSON(url).
       then((r) => {
-        console.log("fetched data, saving to store now")
-        console.log(r);
         commit('saveEvents', r);
       }, (e) => {
         trace.error("Http Request failed");
       });
-    }
+    },
   }
 });
