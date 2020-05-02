@@ -2,6 +2,8 @@
 
 > app for the bewegungsmelder
 
+For nativescript-vue-devtools see https://nativescript-vue.org/en/docs/getting-started/vue-devtools/ (not yet working)
+
 ## Usage
 
 ``` bash
@@ -19,5 +21,6 @@ tns debug <platform>
 
 # Build for production
 tns build <platform> --env.production
+
 
 ```
