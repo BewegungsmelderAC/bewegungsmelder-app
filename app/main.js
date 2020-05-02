@@ -1,7 +1,8 @@
 import Vue from 'nativescript-vue'
+import VueDevtools from 'nativescript-vue-devtools'
+
 import App from './components/App'
 
-import VueDevtools from 'nativescript-vue-devtools'
 
 if(TNS_ENV !== 'production') {
   Vue.use(VueDevtools, { host: '192.168.192.64' })
