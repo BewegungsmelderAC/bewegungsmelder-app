@@ -1,23 +1,37 @@
 <template>
     <Page>
-        <ActionBar title="Welcome to NativeScript-Vue!"/>
-        <GridLayout columns="*" rows="*">
-            <Label class="message" :text="msg" col="0" row="0"/>
-        </GridLayout>
+        <ActionBar title="Bewegungsmelder-App"/>
+        <StackLayout >
+            <EventList></EventList>
+
+        </StackLayout>
+
     </Page>
 </template>
 
 <script >
+  import { mapGetters } from 'vuex'
+
+  import EventList from "./EventList"
+
   export default {
     data() {
       return {
-        msg: 'Hello World!'
+        msg: 'App'
       }
+    },
+    components: {
+      EventList
+    },
+    computed: {
+    },
+    methods: {
     }
   }
 </script>
 
-<style scoped>
+<!-- alternatively <style scoped> for local style -->
+<style>
     ActionBar {
         background-color: #53ba82;
         color: #ffffff;
