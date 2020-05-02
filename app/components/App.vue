@@ -1,8 +1,7 @@
 <template>
     <Page>
-        <ActionBar title="Welcome to NativeScript-Vue!"/>
+        <ActionBar title="Bewegungsmelder-App"/>
         <StackLayout >
-            <Label class="message" :text="msg" />
             <EventList></EventList>
 
         </StackLayout>

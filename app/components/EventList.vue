@@ -1,7 +1,14 @@
 <template>
   <StackLayout>
-    <Button text="Tap me!" @tap="refresh"></Button>
+    <Button text="Refresh!" @tap="refresh"></Button>
     <Label class="message" :text="eventCount" />
+    <RadListView ref="getEvents" for="event in getEvents" @itemTap="onEventTap">
+      <v-template>
+        <StackLayout>
+          <Label v-if="event" :text="event.name" class="nameLabel"></Label>
+        </StackLayout>
+      </v-template>
+    </RadListView>
   </StackLayout>
 </template>
 
@@ -17,6 +24,9 @@
     methods: {
       refresh() {
         this.$store.dispatch('fetchEvents', {url: "https://bm-ac.ml/api/event"});
+      },
+      onEventTap() {
+
       }
     },
     computed: {
@@ -25,6 +35,9 @@
       }),
       eventCount() {
         return this.getEvents.length;
+      },
+      showList() {
+        return (eventCount() != 0);
       }
     }
   }

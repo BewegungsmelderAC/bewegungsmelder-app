@@ -1,6 +1,9 @@
 import Vue from 'nativescript-vue'
 import VueDevtools from 'nativescript-vue-devtools'
 
+import RadListView from 'nativescript-ui-listview/vue';
+Vue.use(RadListView);
+
 import App from './components/App'
 
 
