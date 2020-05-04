@@ -2,7 +2,7 @@
 
 > app for the bewegungsmelder
 
-For nativescript-vue-devtools see https://nativescript-vue.org/en/docs/getting-started/vue-devtools/ (not yet working)
+For nativescript-vue-devtools see https://nativescript-vue.org/en/docs/getting-started/vue-devtools/
 
 ## Usage
 
