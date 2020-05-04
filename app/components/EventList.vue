@@ -16,9 +16,11 @@
         <GridLayout columns="*" v-bind:rows="cardHeight">
           <!-- We don't have to use cardviews -->
           <card-view if="event.name" margin="10" elevation="40" radius="1">
-            <Stack-layout>
-              <Label :text="event.name" class="nameLabel"></Label>
-            </Stack-layout>
+            <GridLayout columns="75, *" rows="auto, *">
+              <Image if="event.thumbnail" v-bind:src="event.thumbnail" stretch="none" row="0" col="0" rowspan="2" />
+              <Label if="!event.thumbnail" :text="noPictureText" row="0" col="0" rowspan="2"></Label>
+              <Label :text="event.name" row="0" col="1"></Label>
+            </GridLayout>
           </card-view>
         </GridLayout>
       </v-template>
@@ -36,9 +38,10 @@
       return {
         page: 1,
         scrollOffset: 0,
-        scrollTrigger: 25, // number of cards left unread until new data are loaded
-        cardHeight: 100,
-        perPage: 50,
+        scrollTrigger: 50, // number of cards left unread until new data are loaded
+        cardHeight: 70,
+        perPage: 100,
+        noPictureText: "Bild",
       };
     },
     methods: {
@@ -52,7 +55,6 @@
         // Calculate list height and substract unread cards
         let triggerHeight = (this.page * this.perPage * this.cardHeight) - (this.scrollTrigger * this.cardHeight);
         if(this.scrollOffset > triggerHeight) {
-          console.log("triggered.");
           this.page++;
           this.$store.dispatch('fetchEvents', {url: `https://bm-ac.ml/api/event?page=${this.page}&per_page=${this.perPage}`});
         }
