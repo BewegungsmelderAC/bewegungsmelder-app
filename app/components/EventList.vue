@@ -2,55 +2,89 @@
   <StackLayout>
     <Button text="Refresh!" @tap="refresh"></Button>
     <Label class="message" :text="eventCount" />
-    <RadListView ref="getEvents" for="event in getEvents" @itemTap="onEventTap">
-      <v-template>
-      <GridLayout columns="*, 3*" rows="100%" class="layout">
-        <!-- <Label text="0,0" row="0" col="0" backgroundColor="#43b883"/> -->
-        <Image src="https://art.nativescript-vue.org/NativeScript-Vue-White-Green.png" row="0" col="0" stretch="aspectFit" />
 
-        <Label row="0" col="1" textWrap="true" class="nameLabel">
-          <FormattedString>
-            <Span :text="event.name" />
-          </FormattedString>
-        </Label>
-        
-      </GridLayout>
-      
-        <!--         <StackLayout orientation="horizontal" backgroundColor="#3c495e" height="50" width="70">
-            <Label v-if="event" :text="event.name" class="nameLabel"></Label>
-        </StackLayout>-->
+    <RadListView
+              v-if="getEvents"
+              layout="linear"
+              for="event in getEvents"
+              pullToRefresh="true"
+              @itemTap="onEventTap"
+              @pullToRefreshInitiated="onPullToRefreshInitiated"
+              @scrolled="onScrolled"><!-- maybe define item height for ios -->
+
+      <v-template class="event">
+        <GridLayout columns="*" v-bind:rows="cardHeight">
+          <!-- We don't have to use cardviews -->
+          <card-view if="event.name" margin="10" elevation="40" radius="1">
+            <GridLayout columns="75, *" rows="auto, *">
+              <Image if="event.thumbnail" v-bind:src="event.thumbnail" stretch="none" row="0" col="0" rowspan="2" />
+              <Label if="!event.thumbnail" :text="noPictureText" row="0" col="0" rowspan="2"></Label>
+              <Label :text="event.name" row="0" col="1"></Label>
+            </GridLayout>
+          </card-view>
+        </GridLayout>
       </v-template>
+
     </RadListView>
+
   </StackLayout>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+  import { mapGetters } from 'vuex'
 
-export default {
-  data() {
-    return {};
-  },
-  methods: {
-    refresh() {
-      this.$store.dispatch("fetchEvents", {
-        url: "https://bm-ac.ml/api/event"
-      });
+  export default {
+    data() {
+      return {
+        page: 1,
+        scrollOffset: 0,
+        scrollTrigger: 50, // number of cards left unread until new data are loaded
+        cardHeight: 70,
+        perPage: 100,
+        noPictureText: "Bild",
+      };
     },
-    onEventTap() {}
-  },
-  computed: {
-    ...mapGetters({
-      getEvents: "getEvents"
-    }),
-    eventCount() {
-      return this.getEvents.length;
+    methods: {
+      refresh() {
+        this.page = 1;
+        this.$store.dispatch('clearEvents');
+        this.$store.dispatch('fetchEvents', {url: `https://bm-ac.ml/api/event?page=1&per_page=${this.perPage}`});
+      },
+      onScrolled ({ scrollOffset }) {
+        this.scrollOffset = scrollOffset;
+        // Calculate list height and substract unread cards
+        let triggerHeight = (this.page * this.perPage * this.cardHeight) - (this.scrollTrigger * this.cardHeight);
+        if(this.scrollOffset > triggerHeight) {
+          this.page++;
+          this.$store.dispatch('fetchEvents', {url: `https://bm-ac.ml/api/event?page=${this.page}&per_page=${this.perPage}`});
+        }
+      },
+      onEventTap({ item }) {
+        console.log(item);
+      },
+      onPullToRefreshInitiated ({ object }) {
+        this.refresh();
+
+        // in order to avoid race conditions (only on iOS),
+        // in which the UI may not be completely updated here
+        // we use this.$nextTick call:
+        this.$nextTick(() => {
+          object.notifyPullToRefreshFinished();
+        });
+      },
     },
-    showList() {
-      return eventCount() != 0;
+    computed: {
+      ...mapGetters({
+        getEvents: "getEvents"
+      }),
+      eventCount() {
+        return this.getEvents.length;
+      },
+      showList() {
+        return eventCount() != 0;
+      }
     }
-  }
-};
+  };
 </script>
 <!-- alternatively <style scoped> for local style -->
 <style>

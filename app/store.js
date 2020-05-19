@@ -14,8 +14,11 @@ export default new Vuex.Store({
   },
   mutations: {
     saveEvents(state, events = []) {
-      state.events = [...events];
+      events.forEach(event => state.events.push(event));
     },
+    clearEvents(state) {
+      state.events = [];
+    }
   },
   actions: {
     fetchEvents({ commit }, url) {
@@ -26,5 +29,8 @@ export default new Vuex.Store({
         trace.error("Http Request failed");
       });
     },
+    clearEvents({ commit }) {
+      commit('clearEvents');
+    }
   }
 });
