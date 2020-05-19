@@ -4,7 +4,7 @@
     <Label class="message" :text="eventCount" />
 
     <RadListView
-              v-if="getEvents" 
+              v-if="getEvents"
               layout="linear"
               for="event in getEvents"
               pullToRefresh="true"
