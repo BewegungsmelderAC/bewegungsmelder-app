@@ -75,14 +75,26 @@
     },
     computed: {
       ...mapGetters({
-        getEvents: 'getEvents',
+        getEvents: "getEvents"
       }),
       eventCount() {
         return this.getEvents.length;
       },
       showList() {
-        return (eventCount() != 0);
+        return eventCount() != 0;
       }
     }
-  }
+  };
 </script>
+<!-- alternatively <style scoped> for local style -->
+<style>
+  .layout {
+    border-width: 1;
+    border-color: lightgray;
+    border-radius: 5;
+    margin-top: 10;
+  }
+  .nameLabel {
+    font-size: 15px;
+  }
+</style>
