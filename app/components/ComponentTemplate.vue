@@ -3,15 +3,21 @@
 </template>
 
 <script >
-  // import { mapGetters } from 'vuex' // Necessary if the component requests data from store
+  // Necessary if the component requests data from Vuex Store
+  // import { mapGetters } from 'vuex'
 
   export default {
     data() {
       return {
-        msg: 'Template' // Component data which are not part of the vuex store, ie. local data, go here
+        // Component data which are not part of the Vuex Store, ie. local data, go here
+        msg: 'Template'
       }
     },
     components: {
+      // MapGetters to get Data from Vuex Store
+      // ...mapGetters({
+      //   getEvents: "getEvents"
+      // }),
     },
     computed: {
     },
