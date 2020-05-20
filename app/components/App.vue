@@ -2,8 +2,8 @@
     <Page>
         <ActionBar title="Bewegungsmelder-App"/>
         <StackLayout >
-            <EventList></EventList>
-
+            <!--<EventList></EventList>-->
+            <ComponentTemplate></ComponentTemplate>
         </StackLayout>
 
     </Page>
@@ -13,15 +13,17 @@
   import { mapGetters } from 'vuex'
 
   import EventList from "./EventList"
+  import ComponentTemplate from "./ComponentTemplate"
 
   export default {
     data() {
       return {
-        msg: 'App'
+        // msg: 'App'
       }
     },
     components: {
-      EventList
+      EventList,
+      ComponentTemplate
     },
     computed: {
     },
