@@ -22,5 +22,8 @@ tns debug <platform>
 # Build for production
 tns build <platform> --env.production
 
-
 ```
+
+## Adding new components
+
+copy ComponentTemplate.vue and look up its comments
