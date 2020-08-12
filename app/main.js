@@ -1,6 +1,10 @@
+// vue setup
 import Vue from 'nativescript-vue'
 import VueDevtools from 'nativescript-vue-devtools'
 
+
+
+// radlistview setup
 import RadListView from 'nativescript-ui-listview/vue';
 
 Vue.use(RadListView);
@@ -9,6 +13,9 @@ Vue.registerElement(
   () => require('@nstudio/nativescript-cardview').CardView
 );
 
+
+
+
 import App from './components/App'
 
 
@@ -16,9 +23,8 @@ if(TNS_ENV !== 'production') {
   Vue.use(VueDevtools, { host: '192.168.192.64' })
 }
 
-// Vue.prototype.$store = store
+// store setup
 import store from './store'
-
 
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = (TNS_ENV === 'production')

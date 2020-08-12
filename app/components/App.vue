@@ -1,11 +1,8 @@
 <template>
     <Page>
-        <ActionBar title="Bewegungsmelder-App"/>
-        <StackLayout >
-            <!--<EventList></EventList>-->
-            <ComponentTemplate></ComponentTemplate>
+        <ActionBar title="Bewegungsmelder-App" />
+        <StackLayout>
         </StackLayout>
-
     </Page>
 </template>
 
@@ -14,6 +11,7 @@
 
   import EventList from "./EventList"
   import ComponentTemplate from "./ComponentTemplate"
+  //import BottomNavigation from "./BottomNavigation"
 
   export default {
     data() {
@@ -23,7 +21,8 @@
     },
     components: {
       EventList,
-      ComponentTemplate
+      ComponentTemplate,
+      //BottomNavigation
     },
     computed: {
     },
@@ -45,4 +44,5 @@
         font-size: 20;
         color: #333333;
     }
+
 </style>
