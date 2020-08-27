@@ -6,6 +6,8 @@ For nativescript-vue-devtools see https://nativescript-vue.org/en/docs/getting-s
 
 ## Usage
 
+First: install nativescript on your machine
+
 ``` bash
 # Install dependencies
 npm install
