@@ -2,6 +2,9 @@
 import Vue from 'nativescript-vue'
 import VueDevtools from 'nativescript-vue-devtools'
 
+import Navigator from 'nativescript-vue-navigator'
+import {routes} from './routes'
+Vue.use(Navigator, { routes })
 
 
 // radlistview setup
@@ -34,5 +37,5 @@ Vue.config.debug = (TNS_ENV !== 'production')
 
 new Vue({
   store,
-  render: h => h('frame', [h(App)])
+  render: h => h(App),
 }).$start()

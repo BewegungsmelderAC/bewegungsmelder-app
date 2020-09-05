@@ -23,6 +23,7 @@
     "nativescript-ui-listview": "^8.2.0",
     "nativescript-vue": "^2.7.1",
     "nativescript-vue-devtools": "^1.4.0",
+    "nativescript-vue-navigator": "^1.2.0",
     "tns-core-modules": "^6.5.15",
     "vue": "^2.6.11",
     "vue-devtools": "^5.1.4",

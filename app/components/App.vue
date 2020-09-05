@@ -1,9 +1,5 @@
 <template>
-    <Page>
-        <ActionBar title="Bewegungsmelder-App" />
-        <StackLayout>
-        </StackLayout>
-    </Page>
+  <Navigator defaultRoute='/cone'>
 </template>
 
 <script >
