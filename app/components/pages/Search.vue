@@ -1,11 +1,12 @@
 <template>
   <Page>
-    <ActionBar title="title">
+    <ActionBar :title="title">
       <NavigationButton col="0" row="0" text="Go back" android.systemIcon="ic_menu_back" @tap="goBack" />
-      <GridLayout columns="auto, *" rows="auto">
-        <!-- <Button class="nav-btn" text='Back' @tap="goBack" row="0" col="0" /> -->
-        
-      </GridLayout>
+
+      <!-- <GridLayout columns="auto, *" rows="auto">
+        <Button class="nav-btn" text='Back' @tap="goBack" row="0" col="0" />
+      </GridLayout> -->
+
     </ActionBar>
 
     

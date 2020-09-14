@@ -13,13 +13,13 @@
 
   import DefaultActionBar from '../subcomponents/DefaultActionBar'
 
-
   export default {
-    name: "groups",
+    name: "template",
+    props: [],
     data() {
       return {
         // Component data which are not part of the Vuex Store, ie. local data, go here
-        title: 'Gruppen'
+        title: 'Options'
       }
     },
     components: {
@@ -31,6 +31,7 @@
       //   getEvents: "getEvents"
       // }),
       getInfo() {
+        console.log(this.$navigator.path)
         return this.$navigator.path;
       }
     },

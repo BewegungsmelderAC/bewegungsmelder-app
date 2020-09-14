@@ -1,7 +1,7 @@
 <template>
   <GridLayout columns="*, *, *, *" rows="auto" v-show="hidden" >
     <Button class="nav-btn" text='Home' @tap="goTo('/home')" row="1" col="0" />
-    <Button class="nav-btn" text='Calendar' @tap="goTo('/calendar')" row="1" col="1" />
+    <Button class="nav-btn" text='Kalender' @tap="goTo('/calendar')" row="1" col="1" />
     <Button class="nav-btn" text='Gruppen' @tap="goTo('/groups')" row="1" col="2" />
     <Button class="nav-btn" text='Support' @tap="goTo('/support')" row="1" col="3" />
   </GridLayout>

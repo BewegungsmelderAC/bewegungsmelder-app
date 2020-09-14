@@ -13,6 +13,7 @@
 
   export default {
     name: "template",
+    props: [],
     data() {
       return {
         // Component data which are not part of the Vuex Store, ie. local data, go here
