@@ -1,15 +1,20 @@
 <template>
   <Page>
-    <ActionBar :title="title">
+    <ActionBar title="title">
       <NavigationButton col="0" row="0" text="Go back" android.systemIcon="ic_menu_back" @tap="goBack" />
       <GridLayout columns="auto, *" rows="auto">
         <!-- <Button class="nav-btn" text='Back' @tap="goBack" row="0" col="0" /> -->
-        <SearchBar col="1" row="0" hint="Suche" :text="searchPhrase" @textChange="onTextChanged" @submit="onSubmit" @clear="onClear" />
+        
       </GridLayout>
     </ActionBar>
 
+    
+
     <StackLayout>
-      <Label :text="getInfo" ></Label>
+      <SearchBar v-model="searchedText"
+                  @textChange="onTextChanged"
+                  @submit="onSubmit"
+                  @clear="onClear" />
     </StackLayout>
   </Page>
 </template>
@@ -25,7 +30,7 @@
       return {
         // Component data which are not part of the Vuex Store, ie. local data, go here
         title: 'Search',
-        searchPhrase: ''
+        searchedText: ''
       }
     },
     components: {
@@ -47,7 +52,8 @@
 
       // Search functions
       onTextChanged() {
-        console.log("search: text changed!" + this.searchPhrase);
+        console.log("search: texte changed!");
+        console.log(this.searchedText);
       },
       onSubmit() {
         console.log("search: submitted");

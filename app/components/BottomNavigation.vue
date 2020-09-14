@@ -1,5 +1,5 @@
 <template>
-  <GridLayout columns="*, *, *, *" rows="auto">
+  <GridLayout columns="*, *, *, *" rows="auto" v-show="hidden" >
     <Button class="nav-btn" text='Home' @tap="goTo('/home')" row="1" col="0" />
     <Button class="nav-btn" text='Calendar' @tap="goTo('/calendar')" row="1" col="1" />
     <Button class="nav-btn" text='Gruppen' @tap="goTo('/groups')" row="1" col="2" />
@@ -17,6 +17,9 @@
     data() {
       return {
         // Component data which are not part of the Vuex Store, ie. local data, go here
+        hiddenArr: [
+          '/search',
+        ]
       }
     },
     components: {
@@ -27,6 +30,9 @@
       // ...mapGetters({
       //   getEvents: "getEvents"
       // }),
+      hidden() {
+        return !this.hiddenArr.includes(this.$navigator.path);
+      }
     },
     methods: {
       goTo(name) {

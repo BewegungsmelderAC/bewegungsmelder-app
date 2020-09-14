@@ -1,6 +1,6 @@
 <template>
   <Page>
-    <DefaultActionBar />
+    <DefaultActionBar :text="title" />
 
 
     <StackLayout>

@@ -3,7 +3,7 @@
     <ContentView row="0">
       <Navigator defaultRoute='/home' />
     </ContentView>
-    <BottomNavigation row="1"/>
+    <BottomNavigation row="1" />
   </GridLayout>
 </template>
 
@@ -18,7 +18,7 @@
   export default {
     data() {
       return {
-        msg: 'App'
+        msg: 'App',
       }
     },
     components: {
