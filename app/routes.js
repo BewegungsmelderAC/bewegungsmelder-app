@@ -1,11 +1,26 @@
-import Cone from './components/Cone'
-import Ctwo from './components/Ctwo'
+import ComponentTemplate from './components/ComponentTemplate'
+import Home from './components/pages/Home'
+import Calendar from './components/pages/Calendar'
+import Groups from './components/pages/Groups'
+import Support from './components/pages/Support'
+import Search from './components/pages/Search'
+
 
 export const routes = {
-  '/cone': {
-    component: Cone,
+  '/home': {
+    component: Home,
   },
-  '/ctwo': {
-    component: Ctwo,
+  '/calendar': {
+    component: Calendar,
   },
+  '/groups': {
+    component: Groups,
+  },
+  '/support': {
+    component: Support,
+  },
+
+  '/search': {
+    component: Search,
+  }
 }

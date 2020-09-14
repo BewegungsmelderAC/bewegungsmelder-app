@@ -5,5 +5,10 @@
   },
   "main": "main",
   "name": "bewegungsmelder-app",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "scripts": {
+    "start": "tns run android",
+    "clean": "tns platform clean android",
+    "devtools": "vue-devtools"
+  }
 }

@@ -1,8 +1,8 @@
 <template>
   <Page>
-    <ActionBar :title="getInfo" />
+    <DefaultActionBar />
     <StackLayout>
-      <Label :text="msg" ></Label>
+      <Label :text="getInfo" ></Label>
     </StackLayout>
   </Page>
 </template>
@@ -11,15 +11,19 @@
   // Necessary if the component requests data from Vuex Store
   // import { mapGetters } from 'vuex'
 
+  import DefaultActionBar from '../subcomponents/DefaultActionBar'
+
+
   export default {
-    name: "template",
+    name: "support",
     data() {
       return {
         // Component data which are not part of the Vuex Store, ie. local data, go here
-        msg: 'Template'
+        title: 'Support'
       }
     },
     components: {
+      DefaultActionBar,
     },
     computed: {
       // MapGetters to get Data from Vuex Store
@@ -27,7 +31,6 @@
       //   getEvents: "getEvents"
       // }),
       getInfo() {
-        console.log(this.$navigator.path)
         return this.$navigator.path;
       }
     },

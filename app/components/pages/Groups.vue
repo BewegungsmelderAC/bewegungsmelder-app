@@ -1,28 +1,38 @@
 <template>
-  <StackLayout>
-    <Label :text="msg" ></Label>
-    <Button text="Button" @tap="onButtonTap" />
-  </StackLayout>
+  <Page>
+    <DefaultActionBar />
+    <StackLayout>
+      <Label :text="getInfo" ></Label>
+    </StackLayout>
+  </Page>
 </template>
 
 <script >
   // Necessary if the component requests data from Vuex Store
   // import { mapGetters } from 'vuex'
 
+  import DefaultActionBar from '../subcomponents/DefaultActionBar'
+
+
   export default {
+    name: "groups",
     data() {
       return {
         // Component data which are not part of the Vuex Store, ie. local data, go here
-        msg: 'c-one'
+        title: 'Groups'
       }
     },
     components: {
+      DefaultActionBar,
+    },
+    computed: {
       // MapGetters to get Data from Vuex Store
       // ...mapGetters({
       //   getEvents: "getEvents"
       // }),
-    },
-    computed: {
+      getInfo() {
+        return this.$navigator.path;
+      }
     },
     methods: {
     }

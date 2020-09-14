@@ -2,10 +2,6 @@
 import Vue from 'nativescript-vue'
 import VueDevtools from 'nativescript-vue-devtools'
 
-import Navigator from 'nativescript-vue-navigator'
-import {routes} from './routes'
-Vue.use(Navigator, { routes })
-
 
 // radlistview setup
 import RadListView from 'nativescript-ui-listview/vue';
@@ -17,9 +13,12 @@ Vue.registerElement(
 );
 
 
-
-
 import App from './components/App'
+
+
+import Navigator from 'nativescript-vue-navigator'
+import {routes} from './routes'
+Vue.use(Navigator, { routes })
 
 
 if(TNS_ENV !== 'production') {
