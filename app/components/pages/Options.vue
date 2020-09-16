@@ -1,6 +1,8 @@
 <template>
   <Page>
-    <DefaultActionBar :text="title" />
+    <ActionBar :title="title">
+      <NavigationButton col="0" row="0" text="Go back" android.systemIcon="ic_menu_back" @tap="goBack" />
+    </ActionBar>
     <StackLayout>
       <Label :text="getInfo" ></Label>
     </StackLayout>
@@ -14,7 +16,7 @@
   import DefaultActionBar from '../subcomponents/DefaultActionBar'
 
   export default {
-    name: "template",
+    name: "options",
     props: [],
     data() {
       return {
@@ -31,11 +33,13 @@
       //   getEvents: "getEvents"
       // }),
       getInfo() {
-        console.log(this.$navigator.path)
         return this.$navigator.path;
       }
     },
     methods: {
+      goBack() {
+        this.$navigator.back();
+      },
     }
   }
 </script>

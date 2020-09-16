@@ -1,5 +1,5 @@
 <template>
-  <GridLayout class="App" rows="*, auto">
+  <GridLayout class="App" rows="*, auto" >
     <ContentView row="0">
       <Navigator defaultRoute='/home' />
     </ContentView>
@@ -10,7 +10,6 @@
 <script >
   import { mapGetters } from 'vuex'
 
-
   import EventList from "./EventList"
   import ComponentTemplate from "./ComponentTemplate"
   import BottomNavigation from "./BottomNavigation"
@@ -19,6 +18,7 @@
     data() {
       return {
         msg: 'App',
+        colorString: "#FF0075",
       }
     },
     components: {
@@ -27,6 +27,13 @@
       BottomNavigation
     },
     computed: {
+      // ...mapGetters({
+      //   getColors: "getColors"
+      // }),
+      // getMainColor() {
+      //   console.log(getColors)
+      //   return rgb(getColors[2])
+      // }
     },
     methods: {
     }
@@ -36,8 +43,10 @@
 
 <!-- alternatively <style scoped> for local style -->
 <style>
+
+
     ActionBar {
-        background-color: #53ba82;
+        background-color: #ff00ff;
         color: #ffffff;
     }
 

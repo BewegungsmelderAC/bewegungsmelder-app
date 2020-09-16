@@ -8,20 +8,11 @@ const httpModule = require("tns-core-modules/http");
 export default new Vuex.Store({
   state: {
     events: [],
-    colorScheme: {
-      color01: "#FFFFFF",
-      color02: "#FFEBF4",
-      color03: "#FF0075",
-      color04: "#EAF4DE",
-      color05: "#B8B8F3",
-      color06: "#033F6D",
-      color07: "#A9FBC3",
-      color08: "#FFF851",
-      color09: "#6A00F5",
-    }
+    colorScheme: ["#FFFFFF","#FFEBF4","#FF0075","#EAF4DE","#B8B8F3","#033F6D","#A9FBC3","#FFF851","#6A00F5"],
   },
   getters: {
-    getEvents: state => state.events || []
+    getEvents: state => state.events || [],
+    getColors: state => state.colorScheme,
   },
   mutations: {
     saveEvents(state, events = []) {

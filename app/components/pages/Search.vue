@@ -42,7 +42,6 @@
       //   getEvents: "getEvents"
       // }),
       getInfo() {
-        console.log(this.$navigator.path);
         return this.$navigator.path;
       }
     },
@@ -53,14 +52,16 @@
 
       // Search functions
       onTextChanged() {
-        console.log("search: texte changed!");
+        console.log("search: text changed!");
         console.log(this.searchedText);
       },
       onSubmit() {
         console.log("search: submitted");
+        console.log(this.searchedText);
       },
       onClear() {
         console.log("search: cleared");
+        console.log(this.searchedText);
       },
 
     }

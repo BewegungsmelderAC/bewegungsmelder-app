@@ -4,13 +4,9 @@
                 ios.systemIcon="12" ios.position="right"
                 android.systemIcon="ic_menu_search" android.position="actionBar"
                  />
-    <ActionItem @tap="goTo('/options')" v-show="isOptions"
+    <ActionItem @tap="goTo('/options')"
                 ios.systemIcon="2" ios.position="right"
                 android.systemIcon="ic_menu_more" android.position="actionBar"
-                 />
-    <ActionItem @tap="goTo('/options')" v-show="!isOptions"
-                ios.systemIcon="14" ios.position="right"
-                android.systemIcon="ic_menu_back" android.position="actionBar"
                  />
     <!-- <GridLayout columns="*, auto" rows="auto">
       <Label :text="getInfo" col="0" row="0" />
@@ -44,9 +40,6 @@
     methods: {
       goTo(name) {
         this.$navigator.navigate(name);
-      },
-      isOptions() {
-        return this.$navigator.path === "/options"
       }
     }
   }
